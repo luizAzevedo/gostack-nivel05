@@ -55,3 +55,6 @@ yarn add react-spring
 yarn add react-router-dom
 
 
+#### Calendario
+
+yarn add react-day-picker
