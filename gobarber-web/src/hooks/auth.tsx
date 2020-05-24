@@ -1,9 +1,15 @@
 import React, { createContext, useCallback, useState, useContext } from 'react';
 import api from '../services/api';
 
+interface User {
+  id: string;
+  name: string;
+  avatar_url: string;
+}
+
 interface AuthState {
   token: string;
-  user: object;
+  user: User;
 }
 
 interface SignInCredenctials {
@@ -12,7 +18,7 @@ interface SignInCredenctials {
 }
 
 interface AuthContextData {
-  user: object;
+  user: User;
 
   // quando transforma o metod em "async", ele passa a retornar uma "Promise<void>"
   signIn(credencials: SignInCredenctials): Promise<void>;
