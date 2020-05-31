@@ -26,8 +26,6 @@ yarn add @types/react-router-dom -D
 
 yarn add @types/styled-components
 
-
-
 yarn add styled-components
 
 yarn add react-icons
@@ -42,6 +40,7 @@ yarn add yup
 
 yarn add @types/yup -D
 
+---
 
 yarn add axios
 
@@ -58,3 +57,5 @@ yarn add react-router-dom
 #### Calendario
 
 yarn add react-day-picker
+
+yarn add date-fns
