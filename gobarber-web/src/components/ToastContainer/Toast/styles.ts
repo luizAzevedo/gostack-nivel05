@@ -34,7 +34,7 @@ export const Container = styled(animated.div)<ConteinerProps>`
     margin-top: 8px;
   }
 
-  ${(props) => toastTypeVariations[props.type || 'info']}
+  ${props => toastTypeVariations[props.type || 'info']}
 
   /* ">" para pegar "apenas" o icone que está dentro do toast
       não o que está dentro do button */
@@ -63,7 +63,7 @@ export const Container = styled(animated.div)<ConteinerProps>`
     color: inherit; /* pegar a cor que esta sendo utilizadao no container */
   }
 
-  ${(props) =>
+  ${props =>
     !props.hasDescription &&
     css`
       align-items: center;

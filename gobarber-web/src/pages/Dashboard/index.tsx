@@ -68,7 +68,7 @@ const Dashboard: React.FC = () => {
           month: currentMonth.getMonth() + 1,
         },
       })
-      .then((response) => {
+      .then(response => {
         setMonthAvailability(response.data);
       });
   }, [currentMonth, user.id]);
@@ -82,8 +82,8 @@ const Dashboard: React.FC = () => {
           day: selectedDate.getDate(),
         },
       })
-      .then((response) => {
-        const appointmentsFormatted = response.data.map((appointment) => {
+      .then(response => {
+        const appointmentsFormatted = response.data.map(appointment => {
           return {
             ...appointment,
             hourFormatted: format(parseISO(appointment.date), 'HH:mm'),
@@ -99,8 +99,8 @@ const Dashboard: React.FC = () => {
   // useMemo() => Memorizar calculos, valores, formatação.
   const disabledDays = useMemo(() => {
     const dates = monthAvailability
-      .filter((monthDay) => monthDay.available === false)
-      .map((monthDay) => {
+      .filter(monthDay => monthDay.available === false)
+      .map(monthDay => {
         const year = currentMonth.getFullYear();
         const moth = currentMonth.getMonth();
 
@@ -120,19 +120,19 @@ const Dashboard: React.FC = () => {
   }, [selectedDate]);
 
   const morningAppointments = useMemo(() => {
-    return appointments.filter((appointment) => {
+    return appointments.filter(appointment => {
       return parseISO(appointment.date).getHours() < 12;
     });
   }, [appointments]);
 
   const afternoonAppointments = useMemo(() => {
-    return appointments.filter((appointment) => {
+    return appointments.filter(appointment => {
       return parseISO(appointment.date).getHours() >= 12;
     });
   }, [appointments]);
 
   const nextAppointment = useMemo(() => {
-    const result = appointments.find((appointment) =>
+    const result = appointments.find(appointment =>
       isAfter(parseISO(appointment.date), new Date()),
     );
 
@@ -196,7 +196,7 @@ const Dashboard: React.FC = () => {
               <p>Nenhum agendamento neste período</p>
             )}
 
-            {morningAppointments.map((appointment) => (
+            {morningAppointments.map(appointment => (
               <Appointment key={appointment.id}>
                 <span>
                   <FiClock />
@@ -221,7 +221,7 @@ const Dashboard: React.FC = () => {
               <p>Nenhum agendamento neste período</p>
             )}
 
-            {afternoonAppointments.map((appointment) => (
+            {afternoonAppointments.map(appointment => (
               <Appointment key={appointment.id}>
                 <span>
                   <FiClock />
