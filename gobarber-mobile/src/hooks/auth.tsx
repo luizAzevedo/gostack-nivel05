@@ -8,9 +8,16 @@ import React, {
 import AsyncStorage from '@react-native-community/async-storage';
 import api from '../services/api';
 
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  avatar_url: string;
+}
+
 interface AuthState {
   token: string;
-  user: object;
+  user: User;
 }
 
 interface SignInCredenctials {
@@ -19,7 +26,7 @@ interface SignInCredenctials {
 }
 
 interface AuthContextData {
-  user: object;
+  user: User;
   loading: boolean;
   // quando transforma o metod em "async", ele passa a retornar uma "Promise<void>"
   signIn(credencials: SignInCredenctials): Promise<void>;
