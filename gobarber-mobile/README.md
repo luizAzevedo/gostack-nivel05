@@ -112,3 +112,6 @@ yarn add @react-native-community/async-storage
 
 
 yarn add @react-native-community/datetimepicker
+
+
+yarn add date-fns
