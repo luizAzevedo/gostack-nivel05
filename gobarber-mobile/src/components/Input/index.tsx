@@ -14,6 +14,7 @@ import { Container, TextInput, Icon } from './styles';
 interface InputProps extends TextInputProps {
   name: string;
   icon: string;
+  containerStyle?: {};
 }
 
 interface InputValueReference {
@@ -26,11 +27,11 @@ interface InputRef {
 
 /** RefForwardingComponent
  * Utilizar somente no caso de receber o parametro "ref"
- * @param param0 { name, icon, ...rest }
+ * @param param0 { name, icon, containerStyle = {},...rest }
  * @param ref // recebe a referencia do outro componente
  */
 const Input: React.RefForwardingComponent<InputRef, InputProps> = (
-  { name, icon, ...rest },
+  { name, icon, containerStyle = {}, ...rest },
   ref,
 ) => {
   const inputElementRef = useRef<any>(null);
@@ -82,7 +83,7 @@ const Input: React.RefForwardingComponent<InputRef, InputProps> = (
         /* essa linha é responsavel por mudar visualmente o texto que está dentro do input */
         inputElementRef.current.setNativeProps({ text: value });
       },
-      clearValue() {
+      clearValue(_ref: any) {
         inputValueRef.current.value = '';
         inputElementRef.current.clear();
       },
@@ -91,7 +92,7 @@ const Input: React.RefForwardingComponent<InputRef, InputProps> = (
 
   return (
     // passagem de parametro para styles. "isFocused"
-    <Container isFocused={isFocused} isErrored={!!error}>
+    <Container style={containerStyle} isFocused={isFocused} isErrored={!!error}>
       <Icon
         name={icon}
         size={20}
@@ -105,7 +106,7 @@ const Input: React.RefForwardingComponent<InputRef, InputProps> = (
         defaultValue={defaultValue}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
-        onChangeText={(value) => {
+        onChangeText={value => {
           inputValueRef.current.value = value;
         }}
         {...rest}
