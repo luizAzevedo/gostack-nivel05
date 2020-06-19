@@ -115,3 +115,6 @@ yarn add @react-native-community/datetimepicker
 
 
 yarn add date-fns
+
+
+yarn add react-native-image-picker
