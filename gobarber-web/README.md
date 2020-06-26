@@ -72,3 +72,5 @@ yarn add react-scripts@3.4.0
 yarn add @testing-library/react-hooks -D
 
 yarn add react-test-renderer -D
+
+yarn add axios-mock-adapter -D
