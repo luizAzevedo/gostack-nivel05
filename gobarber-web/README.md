@@ -59,3 +59,12 @@ yarn add react-router-dom
 yarn add react-day-picker
 
 yarn add date-fns
+
+
+#### Iniciando os testes
+
+yarn add --dev react-native-testing-library
+
+yarn test --coverage --watchAll false
+
+yarn add react-scripts@3.4.0
