@@ -1,7 +1,6 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import MockAdapter from 'axios-mock-adapter';
 
-import { ignoredYellowBox } from 'console';
 import { useAuth, AuthProvider } from '../../hooks/auth';
 import api from '../../services/api';
 
