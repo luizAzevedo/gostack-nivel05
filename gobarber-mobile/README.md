@@ -118,3 +118,11 @@ yarn add date-fns
 
 
 yarn add react-native-image-picker
+
+
+### Iniciando os Testes
+
+yarn add --dev react-native-testing-library
+
+yarn add --dev @testing-library/jest-native
+

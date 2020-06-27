@@ -27,6 +27,11 @@ export const UserAvatarButton = styled.TouchableOpacity`
   align-self: center; */
 `;
 
+export const QuitButton = styled.TouchableOpacity`
+  margin-top: -25px;
+  margin-left: 85%;
+`;
+
 export const UserAvatar = styled.Image`
   width: 155px;
   height: 155px;

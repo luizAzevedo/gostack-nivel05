@@ -29,6 +29,7 @@ import {
   UserAvatar,
   UserAvatarButton,
   BackButton,
+  QuitButton,
 } from './styles';
 
 interface ProfileFormData {
@@ -40,7 +41,7 @@ interface ProfileFormData {
 }
 
 const Profile: React.FC = () => {
-  const { user, updateUser } = useAuth();
+  const { user, updateUser, signOut } = useAuth();
   const formRef = useRef<FormHandles>(null);
   const navigation = useNavigation();
 
@@ -138,7 +139,6 @@ const Profile: React.FC = () => {
 
         if (response.error) {
           Alert.alert('Erro ao atualizar seu avatar.');
-          // console.log('ImagePicker Error: ', response.error);
           return;
         }
 
@@ -149,8 +149,6 @@ const Profile: React.FC = () => {
           name: `${user.id}.jpg`,
           uri: response.uri,
         });
-
-        console.log(response.uri);
 
         api.patch('/users/avatar', data).then(apiResponse => {
           updateUser(apiResponse.data);
@@ -178,6 +176,10 @@ const Profile: React.FC = () => {
             <BackButton onPress={handleGoBack}>
               <Icon name="chevron-left" size={24} color="#999591" />
             </BackButton>
+
+            <QuitButton onPress={signOut}>
+              <Icon name="power" size={24} color="#999591" />
+            </QuitButton>
 
             <UserAvatarButton onPress={handleUpdateAvatar}>
               <UserAvatar source={{ uri: user.avatar_url }} />

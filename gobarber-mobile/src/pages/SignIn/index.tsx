@@ -13,7 +13,6 @@ import { useNavigation } from '@react-navigation/native';
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
-import api from '../../services/api';
 
 import { useAuth } from '../../hooks/auth';
 
@@ -50,9 +49,7 @@ const SignIn: React.FC = () => {
 
   const navigation = useNavigation();
 
-  const { signIn, user } = useAuth();
-
-  console.log(user);
+  const { signIn } = useAuth();
 
   const handleSignIn = useCallback(
     async (data: SignInFormData) => {
@@ -151,9 +148,7 @@ const SignIn: React.FC = () => {
               </Button>
             </Form>
             <ForgotPassword
-              onPress={() => {
-                console.log('Funcionou 1');
-              }}
+              onPress={() => navigation.navigate('ForgotPassword')}
             >
               <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
             </ForgotPassword>
